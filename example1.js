@@ -85,31 +85,222 @@
 // var emp1= new employee(1,23,"santhi","developing","webdeveloper","12 l","23/6/18","yes",25,12,"3535665143");
 // console.log(emp1.e_balanced_leaves());
 
-var date=new Date();
-console.log(date);
-var currentDate=date.getDate();
-console.log(currentDate);
-var currentMonth=date.getMonth()+1;
-console.log(currentMonth);
-var currentFullYear=date.getFullYear();
-console.log(currentFullYear);
-console.log(currentMonth+"/"+currentDate+"/"+currentFullYear);
+// var date=new Date();
+// console.log(date);
+// var currentDate=date.getDate();
+// console.log(currentDate);
+// var currentMonth=date.getMonth()+1;
+// console.log(currentMonth);
+// var currentFullYear=date.getFullYear();
+// console.log(currentFullYear);
+// console.log(currentMonth+"/"+currentDate+"/"+currentFullYear);
 
-function presenDate(){
-    // debugger;
-  var day = date.getDate();
-  var monthNames = [
-    "January", "February", "March",
-    "April", "May", "June", "July",
-    "August", "September", "October",
-    "November", "December"
-  ];
-  var monthIndex = date.getMonth();
-  var month=monthNames[monthIndex];
-  var year = date.getFullYear();
-   return (day + ' ' + month + ' ' + year);
+// function presenDate(){
+//     // debugger;
+//   var day = date.getDate();
+//   var monthNames = [
+//     "January", "February", "March",
+//     "April", "May", "June", "July",
+//     "August", "September", "October",
+//     "November", "December"
+//   ];
+//   var monthIndex = date.getMonth();
+//   var month=monthNames[monthIndex];
+//   var year = date.getFullYear();
+//    return (day + ' ' + month + ' ' + year);
+// }
+// console.log(presentDate());
+// -------- to check give element is exists or not in array ----
+// var a=[1,2,3,4,5,6,7,8]
+// // console.log(a.includes(2,1))
+// delete a[1];
+// console.log(a)
+// ------------ largest number------
+// var array = [3 , 6, 2, 56, 32, 5, 89, 32];
+// var largest= 0;
+// for (i=0; i<=largest;i++){
+//     if (array[i]>largest) {
+//         var largest=array[i];
+//     }
+// }
+// console.log(largest)
+// --------- 4/9/2019 -----------------
+
+// var a=[{id:1,name:"abc"},{id:2,name:"def"},{id:3,name:"ghi"},{id:4,name:"jkl"},{id:5,name:"mno"},
+// {id:6,name:"pqr"},{id:7,name:"stu"},{id:8,name:"vxy"},{id:9,name:"zab"},{id:10,name:"cde"}]
+// var A=a.forEach(function(val){
+//     console.log(val.name);
+
+//     console.log(Object.keys(val));
+//     console.log(Object.values(val));
+//     if(val.id%2==0){
+//         console.log(val)
+//     }
+
+// })
+// ------------repalace even number with 0 and odd number with 1 -------
+// var a=[2,5,7,6,8,3,9,0,10,879,78969];
+// var Z=a.map(function(val,index){
+//     if(val%2==0){
+//     // val.splice(index,1,0);
+//     return 0;
+//     }
+//     else{
+//     // val.splice(index,1,1);
+//     return 1;
+//     }
+// })
+// console.log(Z);
+// -------- unique elements in 2 arrays -----
+// var a=[1,2,3,4,5];
+// var b=[2,4,6,7,3];
+// count=0;
+//    for(i=0;i<a.length;i++){
+//         for(j=0;i<b.length;j++)
+//        if(a[i]!==b[j]){
+//        console.log(a[i])         
+//        }
+//        else{console.log(b[j])}
+//     }
+   // ------------- function to get even nos ---------
+   // function even(param){
+   //    var b=param.filter(function(val){
+   //       if(val%2==0){
+   //          return true;
+   //       }
+   //       else{return false}
+   //    })
+   //    console.log(b)
+   // }
+   // var a=even([1,2,3,4,5])
+// ---------function for even numbers ------
+// var a=[1,2,3,4,5,6,7,8]
+// function even(par){
+//    var b= par.filter(function(val){
+//         if(val%2==0){
+//             return val;
+//         }
+//         // else{return false}
+//     })
+//     console.log(b);
+// }
+// var  arr=even(a);
+// ------------09/09/19---------
+// ---------------- to return given no.'s datatype ----------
+// function check(param){
+//    var b= typeof param
+//    console.log(b);
+// }
+// var c=check([1,34,6])
+// -------------- to print data type of given no. ---------
+// function check(param){
+//    var input =typeof param;
+//    if(input=="string"){
+//       console.log(param+" "+"is string")
+//    }
+//   else if(input=="number"){
+//       console.log(param+" "+"is number")
+//    }
+//    else if(input=="boolean"){
+//       console.log(param+" "+"is boolean")
+//    }
+//    else{
+//       console.log(param+" "+"is object")
+//    };
+// }
+// check(true)
+// --------------- to check given no. even no. r not --------------
+//    function check(par){
+//                if(par %2==0){
+//                   console.log(par+"is even number")
+//                }
+//                else{console.log(par+"is odd number")}
+//    }
+//  check(6);
+// ----------------
+// var a=[{id:1,name:"santhi",per:50},{id:1,name:"lolitha",per:68},{id:1,name:"divya",per:76},{id:1,name:"uha",per:90},{id:1,name:"kavitha",per:8}]
+// function display(param){
+//   param.forEach(function(val){
+//      if(val.per>80){
+//         console.log(val.name+" got distinction")
+//      }
+//      else if(val.per>75 && val.per<80){
+//       console.log(val.name+" got A grade")
+//    }
+//    else if(val.per>60 && val.per<75){
+//       console.log(val.name+" got B grade")
+//    }
+//    else if(val.per>45 && val.per<60){
+//       console.log(val.name+" got C grade")
+//    }
+//    else if(val.per>35 && val.per<45){
+//       console.log(val.name+" got D grade")
+//    }
+//    else if(val.per>35){
+//       console.log(val.name+" failed")
+//    }
+//   })
+
+// }
+// display(a)
+// ------------------- get week based on given no.from 0-6 --------------
+// function getweek(param){
+//    var day=["son","mon","tue","wed","thu","fri","sat"];
+//    var datIndex=param;
+
+//    return(day[datIndex]);
+// }
+// var get=getweek(2);
+// console.log(get);
+// // ------------ 
+// function dateOf(param){
+//    switch (param) {
+//       case 0:
+//          console.log("Sunday");
+//         break;
+//       case 1:
+//          console.log("monday");
+        
+//         break;
+//       case 2:
+//          console.log("tueday");
+//         break;
+//          console.log("wedday");
+//          case 3:
+//         break;
+//          console.log("thursday");
+//          case 4:
+//         break;
+//          console.log("friday");
+//          case 5:
+//         break;
+//          console.log("Satday");
+//          case 6:
+//     }
+//    }
+//    dateOf(1)
+// ----------------- take input from js and print -----------
+// var input=prompt();
+// console.log(input);
+// --------- to check given Node.is even or not ------
+// var input=prompt();
+// if(input%2==0){
+//    console.log(input+" even number");
+// }
+// else{
+//    console.log(input+" odd number");
+
+// }
+// ----------print even Node.s up to n except 26 -----------------
+var n=prompt();
+for(var i=0;i<=n;i=i+2){
+   if(i===26){
+      continue}
+       
+   console.log(i)
+       
+   
 }
-console.log(presentDate());
 
 
 
@@ -118,24 +309,6 @@ console.log(presentDate());
 
 
 
-
-
-
-
-// function formatDate(date) {
-//     var day = date.getDate();
-//     var monthNames = [
-//         "January", "February", "March",
-//         "April", "May", "June", "July",
-//         "August", "September", "October",
-//         "November", "December"
-//       ];
-//     var monthIndex = date.getMonth();
-//     var year = date.getFullYear();
-  
-//     return day + ' ' + monthNames[monthIndex] + ' ' + year;
-//   }
-//   console.log(formatDate(new Date()));    
 
 
 

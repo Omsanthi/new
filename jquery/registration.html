@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+
+<div class="container">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text"  id="user" class="form-control"/>
+        </div>
+        <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="pwd" class="form-control"/>
+            </div>
+            <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="Email"class="form-control"/>
+                </div>
+                <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" id="dob"class="form-control"/>
+                    </div>
+                     <div class="form-group">
+                            <label>Gender</label><br>
+                            <input type="radio" class="form-checked" name="gender" value="f"/>female
+                            <input type="radio" class="form-checked" name="gender" value="m"/>male
+
+                        </div>
+                        <div class="form-group">
+                                <label>Hobbies</label><br>
+                                <input type="checkbox" class="form-checked hobbie" value="music" />music
+                                <input type="checkbox" class="form-checked hobbie" value="cricket"/>cricket
+                                <input type="checkbox" class="form-checked hobbie" value="art" />art
+                                <input type="checkbox" class="form-checked hobbie" value="reading"/>reading
+                            </div>
+                            <div class="form-group">
+                                    <label>Address</label><br>
+                                    <textarea class="form-control" id="add"></textarea>
+                            </div>
+                            <div class="form-group">
+                                    <label>Country</label><br>
+                                    <select data-placeholder="Choose a country..." multiple class="form-control chosen-select">
+                                        <option class="opt">Ind</option>
+                                        <option class="opt">Us</option>
+                                        <option class="opt">Uk</option>
+                                        <option class="opt">Aus</option>
+                                        <option class="opt">Canada</option>
+                                    </select>
+                            </div>
+            <div >
+                <button class="btn btn-primary" id="signup">Signup</button>
+                <a href="loginform.html"><button class="btn btn-primary">Login</button></a>
+
+            </div>
+    </div>
+    <script>
+    $("#signup").click(function(){
+        var username=$("#user").val();
+            var pwd=$("#pwd").val();
+        var password=$("#pwd").val();
+        var email=$("#Email").val();
+        var dob=$("#dob").val();
+        var address=$("#add").val();
+        var gender=$("input[name='gender']:checked").val();
+        var hobbies=$("input[type='checkbox']:checked").val();
+        var country=$(".opt:checked").val();
+        
+
+
+        var data={
+            'username':username,
+            'password':password,
+            'email':email,
+            'date of birth':dob,
+            'address':address,
+            'country':country,
+            'gender':gender,
+            'hobbies':hobbies
+
+        }
+        console.log(data)
+    })
+    $(".chosen-select").chosen({no_results_text: "Oops, nothing found!"}); 
+
+    </script>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

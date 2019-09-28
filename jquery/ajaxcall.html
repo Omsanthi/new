@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<div class="container">
+    <button class="btn btn-warning" id="bttn">click</button>
+    <table class="table table-striped">
+        <thead id="table-head">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>username</th>
+                <th>email</th>
+                <th>city</th>
+                <th>phone</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+          
+        </tbody>
+    </table>
+</div>
+<script>
+$("#bttn").click(function(){
+    $.ajax({
+        url:"https://jsonplaceholder.typicode.com/users",
+        method:"GET",
+        success:function(res){
+            // console.log("success");
+                 prepareList(res);                   
+                 },
+        error:function(res){
+            console.log("error occured")
+                 }
+    })
+})
+function  prepareList(users){
+      users.forEach(function(user,index){
+          var ele="<tr>"+
+                "<td>"+user.id+"</td>"+
+              "<td>"+user.name+"</td>"+
+              "<td>"+user.username+"</td>"+
+              "<td>"+user.email+"</td>"+
+              "<td>"+user.address.city+"</td>"+
+              "<td>"+user.phone+"</td>"+
+          "</tr>";
+          $("#table-body").append(ele)
+      })
+}
+
+</script>

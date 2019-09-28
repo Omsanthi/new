@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<div class="container my-5">
+    <button class="btn btn-danger" onClick="generate()" data-toggle="collapse" data-target="#view">get users </button>
+    <button class="btn btn-danger" onClick="acordion()">get users acordion</button>    
+<table class="table table-striped my-3">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>user name</th>
+            <th>email</th>
+            <th>city</th>
+            <th>phone</th>
+            <th>website</th>
+            <th>company</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody  class="collapse" id="view">
+       
+    </tbody>
+</table>
+<div id="view2">
+    
+</div>
+</div>
+<script>  
+    var arr;
+function generate(){
+    var shttp=new XMLHttpRequest();
+    shttp.open("GET", "https://jsonplaceholder.typicode.com/users");
+    shttp.send();
+shttp.onreadystatechange = function() {
+        if (this.readyState == 4 ) {
+    // console.log(this.responseText);
+     arr=JSON.parse(this.responseText);
+    prepareList(arr);
+    }
+}
+function  prepareList(users){
+    document.getElementById("view").innerHTML="";
+users.forEach(function(val,index) {
+   var  ele= '<tr>'+
+            '<td>'+val.id+'</td>'+
+           '<td>'+val.name+'</td>'+
+           ' <td>'+val.username+'</td>'+
+           ' <td>'+val.email+'</td>'+
+           ' <td>'+val.address.city+'</td>'+
+           ' <td>'+val.phone+'</td>'+
+           ' <td>'+val.website+'</td>'+
+           ' <td>'+val.company.name+'</td>'+
+           ' <td>'+   
+             '<button type="submit" class="btn btn-danger" onclick="goto('+val.id+')">Edit</button>'+
+           '</td>'+
+       ' </tr>';
+document.getElementById("view").innerHTML+=ele;
+})
+ }
+}
+function goto(data){
+    //  window.location.replace("file:///C:/Users/DELL/Desktop/vbm/new/form.html");
+    localStorage.setItem("id",data);
+    location.href = "form.html";
+    // prepare(arr);
+
+    }
+// onclick="getId('+val.id+')"
+// function getId(data){
+//     arr.filter(function(val, index) {
+//         if(val.id == data){
+//             alert(val.name);
+//         }
+//     });
+// }
+</script> 
+
+<!-- // --------------------------------------------------------------- -->
+<!-- // function acordion(){
+// var ahttp=new XMLHttpRequest();
+// ahttp.open("GET","https://jsonplaceholder.typicode.com/users")
+// ahttp.send();
+// ahttp.onreadystatechange=function(){
+//     if(ahttp.readyState==4){
+//         var res=JSON.parse(this.responseText);
+//         prepareListAcordion(res);
+//     } -->
+<!-- // }
+// function prepareListAcordion(users){
+//     document.getElementById("view2").innerHTML="";
+//     users.forEach(function(val,index){
+//       var  ele='<div class="card">'+
+//        ' <div class="card-header" data-toggle="collapse" data-target="#body'+index+'">'+
+//             index + " . "+val.name +
+//        ' </div>'+
+//         '<div class="card-body collapse" id="body'+index+'">'+
+//            ' <ul>'+
+//                 '<li>'+'id: '+val.id+'</li>'+
+//                ' <li>'+'name: '+val.name+'</li>'+
+//               '  <li>'+'username: '+val.username+'</li>'+
+//              '   <li>'+'email: '+val.email+'</li>'+
+//                ' <li>'+'city: '+val.address.city+'</li>'+
+//               '  <li>'+'phone: '+val.phone+'</li>'+
+//                ' <li>'+'website: '+val.website+'</li>'+
+//                 '<li>'+'company: '+val.company.name+'</li>'+
+
+//            ' </ul>'+
+//       '  </div>'+
+//    ' </div>';
+//    document.getElementById("view2").innerHTML+=ele;
+
+//     })
+// }} -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

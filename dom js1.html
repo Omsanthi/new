@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<h1 class="text-center my-3">generate dynamic table rows</h1>
+<div class="container">
+<button class="btn btn-primary mb-3"onClick="generate()" data-toggle="collapse" data-target="#tablebody">Insert</button>
+<table class="table table-striped" >
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>percentage</th>
+        </tr>
+    </thead>
+    <tbody id="tablebody" class="collapse"></tbody>
+</table>
+<h1 class="text-center"> get dynamic table cards</h1>
+<button class="btn btn-primary mb-3"  onClick="cards()" data-toggle="collapse" data-target="#view">get cards</button>
+<div id="view" class="collapse"></div>
+</div>
+<script>
+     var arr=[
+    {id:101,name:"ram",per:30},
+    {id:102,name:"jyo",per:20},
+    {id:103,name:"teja",per:10},
+    {id:104,name:"jay",per:60},
+    {id:105,name:"uha",per:70},
+    {id:106,name:"santhi",per:80},
+    {id:107,name:"sindhu",per:75},
+    {id:108,name:"divya",per:85},
+    {id:109,name:"ali",per:40},
+    {id:110,name:"jeshu",per:65}]
+function generate(){
+ 
+    document.getElementById("tablebody").innerHTML="";
+
+arr.forEach(function(val){
+    var tablerow="<tr class='cr'>"+
+                  "<td>"+val.id+"</td>"+
+                  "<td>"+val.name+"</td>"+
+                  "<td>"+val.per+"</td>"+
+                 "</tr>";
+     var a=document.getElementById("tablebody").innerHTML+=tablerow;
+
+    })
+   
+}
+// ----------------------
+function cards(){
+    document.getElementById("view").innerHTML="";
+arr.forEach(function(val){
+    var add="<div class='card my-1'>"+
+        "<div class='card-header'>"+"student id is  "+val.id+" & "+
+               "  student name is  "+val.name+"</div>"+
+        "<div class='card-body'>"+"<p>card content</p>"+"</div>"+
+        "<div class='card-footer'>"+"student percentage is  "+val.per+"</div>"+
+    "</div>";
+    document.getElementById("view").innerHTML+=add;
+})
+
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
