@@ -2,6 +2,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <div class="container">
     <button class="btn btn-warning" id="bttn">click</button>
+    <input type="search" id="search" class="form-control"/>
     <table class="table table-striped">
         <thead id="table-head">
             <tr>
@@ -19,19 +20,20 @@
     </table>
 </div>
 <script>
-$("#bttn").click(function(){
+ var res;
+// $("#bttn").click(function(){
     $.ajax({
         url:"https://jsonplaceholder.typicode.com/users",
         method:"GET",
         success:function(res){
-            // console.log("success");
-                 prepareList(res);                   
+            // console.log(res);
+                 prepareList(res); 
                  },
         error:function(res){
             console.log("error occured")
                  }
     })
-})
+// })
 function  prepareList(users){
       users.forEach(function(user,index){
           var ele="<tr>"+
@@ -42,8 +44,24 @@ function  prepareList(users){
               "<td>"+user.address.city+"</td>"+
               "<td>"+user.phone+"</td>"+
           "</tr>";
-          $("#table-body").append(ele)
+          $("#table-body").append(ele);
+          $("#search").keyup(function(event){
+    var ele=event.target;
+    var searchkey=$(ele).val();
+    // console.log(searchkey)   
+    var list=users;
+    // console.log(list)      
+    if(searchkey.length>1){
+         list=users.filter(function(val,index){
+             return val.name.indexOf(searchkey)!==-1
+         })
+    } 
+    else{$("#table-body").empty();  
+    prepareList(users);                   
+    }
+        }      
+    )
       })
+ 
 }
-
 </script>
